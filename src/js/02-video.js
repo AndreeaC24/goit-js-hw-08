@@ -1,5 +1,5 @@
 import player from './02-vimeo.js';
-import { saveCurrentTime, getCurrentTime } from './02-localstorage.js';
+import { updateLocalStorage, getCurrentTime } from './02-localstorage.js';
 
 player.on('play', () => {
   console.log('played the video!');
@@ -7,7 +7,7 @@ player.on('play', () => {
 
 player.on('timeupdate', data => {
   const currentTime = data.seconds;
-  saveCurrentTime(currentTime);
+  updateLocalStorage(currentTime);
 });
 
 const savedTime = getCurrentTime();
